@@ -1,3 +1,6 @@
-chrome.action.onClicked.addListener(function() {
-  chrome.tabs.create({ url: 'https://techtabor.agondolkodasorome.hu' });
+chrome.action.onClicked.addListener(function(tab) {
+  chrome.scripting.executeScript({
+    target: { tabId: tab.id },
+    files: ['content-script.js']
+  });
 });
